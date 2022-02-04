@@ -7,25 +7,24 @@ import java.util.*;
 
 public class Company
 {
-    private String companyName = "Microfox";
+    private String companyName;
     private BankAccount companyAccount;
-    //public ArrayList<Employee> employees;
-    public Employee employees;
+    private List<Employee> employees;
 
-    public String getCompanyName()
-    {
-        return this.companyName = companyName;
-    }
-
-    public void getCompanyAccount()
-    {
+    public Company(String companyName, BankAccount companyAccount) {
+        this.companyName = companyName;
         this.companyAccount = companyAccount;
-        companyAccount.Account(9963_8965_8745_1254L, 500_000);
+        this.employees = new ArrayList<>();
     }
 
-    public Employee getEmployees()
-    {
-        return employees;
+    public void addEmployee(Employee employee){
+        this.employees.add(employee);
     }
 
+    @Override
+    public String toString() {
+        return "\nCompany Name: " + companyName + "\n" +
+                companyAccount + "\n" +
+                "Employees: " + employees;
+    }
 }

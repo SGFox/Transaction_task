@@ -10,33 +10,30 @@ import java.util.*;
 
 public class Employee
 {
-    //int id;
-    //String name;
-    String department;
-    BigDecimal salary;
-    BankAccount account;
+    private int id;
+    private String name;
+    private String department;
+    private BigDecimal salary;
+    private BankAccount account;
 
-    public ArrayList<String> name;
-
-    {
-        name = new ArrayList<>();
-        name.add(1, "Tom");
-        name.add(2,"Alice");
-        name.add(2,"Kate");
-        name.add(3, "Sam");
-        name.add(4, "Bob");
-        name.add(5, "Bob");
-        name.add(6, "Bob");
-        name.add(7, "Bob");
-        name.add(8, "Bob");
-        name.add(9, "Bob");
-        name.add(10, "Bob");
+    public Employee(int id, String name, String department, BigDecimal salary, BankAccount account) {
+        this.id = id;
+        this.name = name;
+        this.department = department;
+        this.salary = salary;
+        this.account = account;
     }
 
-    void paySalary()                //current salary
-    {
-
+    @Override
+    public String toString() {
+        return "\nEmployee: " + "[ ID: " + id + ", Name: " + name +
+                ", Department: " + department + ", Salary: " + salary +
+                ", " + account + " ]";
     }
 
-
+    public double paySalary()                //current salary
+    {
+        account.setBalance(BigDecimal.valueOf(account.getBalance()).add(salary));
+        return account.getBalance();
+    }
 }
